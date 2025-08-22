@@ -3,7 +3,7 @@ import React from "react";
 
 export default function DockBurg() {
   const links = {
-    sessionize: "https://sessionize.com/ctencf-freiburg/",
+    sessionize: "https://sessionize.com/docker-meetup-freiburg",
     cncf: "https://community.cncf.io/cloud-native-freiburg/",
     meetup: "https://www.meetup.com/docker-black-forest/",
     discord: "https://discord.gg/D5HEB9MZ",
