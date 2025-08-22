@@ -256,11 +256,11 @@ export default function DockBurg() {
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
         <h2 className="text-3xl font-bold">About Us</h2>
         <p className="mt-4 leading-relaxed">
-          DockBurg is the community hub for <strong>Cloud Native Freiburg</strong> — a fusion of the long-running
-          <em> Docker Black Forest Meetup</em> and <em> DevOps Meetups Freiburg</em>.
+          DockBurg is the community hub for <strong>Cloud Native Freiburg</strong> and
+          <strong> Docker Black Forest Meetup</strong>.
         </p>
-        <p className="mt-3 opacity-90">We have hosted more than <strong>10 meetups</strong> with Docker Captains, CNCF Ambassadors, and local tech leaders.</p>
-        <p className="mt-3">Organized by three community leads (including you) under the CNCF Local program.</p>
+        <p className="mt-3 opacity-90">We have hosted more than <strong>10 meetups</strong> with Docker Captains and local tech leaders.</p>
+          <p className="mt-3">Organized by Docker Captain <strong>Mohammad-Ali A'râbi</strong> (creator of Docker Black Forest Meetup), DevOps Strategy Advisor <strong>Janosch Deurer</strong> (organizer of the long-running DevOps Meetup Freiburg), and IT Consultant <strong>Clemens Scholz</strong>.</p>
       </section>
 
       {/* Speakers directory (Hall of Fame) */}
@@ -361,7 +361,7 @@ export default function DockBurg() {
 
       <footer className="bg-gray-900 text-gray-300">
         <div className="max-w-6xl mx-auto px-6 py-8 text-center">
-          <p>© 2025 DockBurg · Built by the Cloud Native Freiburg organizers</p>
+          <p>© 2025 DockBurg · Built by Mohammad-Ali A'râbi</p>
         </div>
       </footer>
     </div>
