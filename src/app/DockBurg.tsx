@@ -213,7 +213,7 @@ export default function DockBurg() {
   ];
 
   // ——— UI helpers ———
-  const SpeakerChip = ({ id }) => {
+  const SpeakerChip = ({ id }: { id: string }) => {
     const s = speakerById[id];
     if (!s) return null;
     return (
@@ -224,7 +224,7 @@ export default function DockBurg() {
     );
   };
 
-  const HostCell = ({ id }) => {
+  const HostCell = ({ id }: { id: string }) => {
     const h = hostById[id];
     if (!h) return <span className="text-sm opacity-70">—</span>;
     return (
@@ -260,7 +260,7 @@ export default function DockBurg() {
           <strong> Docker Black Forest Meetup</strong>.
         </p>
         <p className="mt-3 opacity-90">We have hosted more than <strong>10 meetups</strong> with Docker Captains and local tech leaders.</p>
-          <p className="mt-3">Organized by Docker Captain <strong>Mohammad-Ali A'râbi</strong> (creator of Docker Black Forest Meetup), DevOps Strategy Advisor <strong>Janosch Deurer</strong> (organizer of the long-running DevOps Meetup Freiburg), and IT Consultant <strong>Clemens Scholz</strong>.</p>
+          <p className="mt-3">Organized by Docker Captain <strong>Mohammad-Ali A&#39;râbi</strong> (creator of Docker Black Forest Meetup), DevOps Strategy Advisor <strong>Janosch Deurer</strong> (organizer of the long-running DevOps Meetup Freiburg), and IT Consultant <strong>Clemens Scholz</strong>.</p>
       </section>
 
       {/* Speakers directory (Hall of Fame) */}
@@ -361,7 +361,7 @@ export default function DockBurg() {
 
       <footer className="bg-gray-900 text-gray-300">
         <div className="max-w-6xl mx-auto px-6 py-8 text-center">
-          <p>© 2025 DockBurg · Built by Mohammad-Ali A'râbi</p>
+          <p>© 2025 DockBurg · Built by Mohammad-Ali A&#39;râbi</p>
         </div>
       </footer>
     </div>
