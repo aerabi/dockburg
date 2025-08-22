@@ -9,45 +9,38 @@ export default function DockBurg() {
     discord: "https://discord.gg/D5HEB9MZ",
   };
 
-  const hallOfFame = [
-    {
-      name: "Timo Stark",
-      role: "Docker Captain • Nuremberg 🇩🇪",
-      img: "/timo-stark.jpeg",
-      link: "https://www.linkedin.com/in/timostark/",
-    },
-    {
-      name: "Lize Raes",
-      role: "Docker Captain • Basel 🇨🇭",
-      img: "/lize-raes.jpeg",
-      link: "https://www.linkedin.com/in/lize-raes-a8a34110/",
-    },
-    {
-      name: "Jonas Scholz",
-      role: "Docker Captain • Karlsruhe 🇩🇪",
-      img: "/jonas-scholz.jpeg",
-      link: "https://www.linkedin.com/in/jonas-scholz-490274163/",
-    },
-    {
-      name: "Johannes Großmann",
-      role: "Software Engineer at Docker • Munich 🇩🇪",
-      img: "/johannes-grossmann.jpeg",
-      link: "https://www.linkedin.com/in/johannes-grossmann-286582171/",
-    },
-    {
-      name: "Maxime Clement",
-      role: "Software Engineer at Docker • Lille 🇫🇷",
-      img: "/maxime-clement.jpeg",
-      link: "https://www.linkedin.com/in/maxcleme/",
-    },
-    {
-      name: "Nicholas Dille",
-      role: "Docker Captain • Freiburg 🇩🇪",
-      img: "/nicholas-dille.jpeg",
-      link: "https://www.linkedin.com/in/nicholasdille/",
-    },
+  // —— Master directory: Speakers (add headshots to /public/speakers/*) ——
+  const speakers = [
+    { id: "timo-stark", name: "Timo Stark", role: "Docker Captain • Nuremberg 🇩🇪", img: "/speakers/timo-stark.jpeg", link: "https://www.linkedin.com/in/timostark/" },
+    { id: "lize-raes", name: "Lize Raes", role: "Docker Captain • Basel 🇨🇭", img: "/speakers/lize-raes.jpeg", link: "https://www.linkedin.com/in/lize-raes-a8a34110/" },
+    { id: "jonas-scholz", name: "Jonas Scholz", role: "Docker Captain • Karlsruhe 🇩🇪", img: "/speakers/jonas-scholz.jpeg", link: "https://www.linkedin.com/in/jonas-scholz-490274163/" },
+    { id: "johannes-grossmann", name: "Johannes Großmann", role: "Software Engineer at Docker • Munich 🇩🇪", img: "/speakers/johannes-grossmann.jpeg", link: "https://www.linkedin.com/in/johannes-grossmann-286582171/" },
+    { id: "maxime-clement", name: "Maxime Clement", role: "Software Engineer at Docker • Lille 🇫🇷", img: "/speakers/maxime-clement.jpeg", link: "https://www.linkedin.com/in/maxcleme/" },
+    { id: "nicholas-dille", name: "Nicholas Dille", role: "Docker Captain • Freiburg 🇩🇪", img: "/speakers/nicholas-dille.jpeg", link: "https://www.linkedin.com/in/nicholasdille/" },
+    { id: "julian-konig", name: "Julian König", role: "Docker Captain • Freiburg 🇩🇪", img: "/speakers/julian-konig.jpeg", link: "https://www.linkedin.com/in/jkoenig134/" },
+    { id: "andreas-harter", name: "Andreas Harter", role: "SRE Lead at JobRad • Freiburg 🇩🇪", img: "/speakers/andreas-harter.jpeg", link: "https://www.linkedin.com/in/andreas-harter/" },
+    { id: "stefan-ruf", name: "Stefan Ruf", role: "Software Engineer at InxMail • Freiburg 🇩🇪", img: "/speakers/stefan-ruf.jpeg", link: "https://www.linkedin.com/in/steve192/" },
+    { id: "daniel-leinfelder", name: "Daniel Leinfelder", role: "CEO • Smart LGT GmbH • Freiburg 🇩🇪", img: "/speakers/daniel-leinfelder.jpeg", link: "https://www.linkedin.com/in/daniel-leinfelder-589a0a1a0/" },
+    { id: "mathias-leidecker", name: "Mathias Leidecker", role: "Head of Engineering • Recyda • Freiburg 🇩🇪", img: "/speakers/mathias-leidecker.jpeg", link: "https://www.linkedin.com/in/mathias-leidecker-015266100/" },
+    { id: "megha-kadur", name: "Megha Kadur", role: "Docker Captain • Bengaluru 🇮🇳", img: "/speakers/megha-kadur.jpeg", link: "https://www.linkedin.com/in/megha-kadur/" },
+    { id: "mohammad-ali-arabi", name: "Mohammad-Ali A'râbi", role: "Docker Captain • Freiburg 🇩🇪", img: "/speakers/mohammad-ali-arabi.jpeg", link: "https://www.linkedin.com/in/aerabi" },
   ];
 
+  // Helper: fast lookup maps
+  const speakerById = Object.fromEntries(speakers.map((s) => [s.id, s]));
+
+  // —— Master directory: Hosting companies (add logos to /public/logos/*) ——
+  const hosts = [
+    { id: "jobrad", name: "JobRad GmbH", logo: "/logos/jobrad.jpeg", url: "https://www.jobrad.org" },
+    { id: "reservix", name: "Reservix GmbH", logo: "/logos/reservix.jpeg", url: "https://www.reservix.net" },
+    { id: "recyda", name: "Recyda GmbH", logo: "/logos/recyda.jpeg", url: "https://www.recyda.com" },
+    { id: "inxmail", name: "InxMail GmbH", logo: "/logos/inxmail.jpeg", url: "https://www.inxmail.com" },
+    { id: "esono", name: "Esono AG", logo: "/logos/esono.jpeg", url: "https://www.esono.de" },
+    { id: "online", name: "Online / Virtual", logo: "/logos/online.png", url: "#" },
+  ];
+  const hostById = Object.fromEntries(hosts.map((h) => [h.id, h]));
+
+  // —— Events reference speakers & hosts by id ——
   const pastMeetups = [
     {
       n: 14,
@@ -56,8 +49,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/307290156/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/docker-black-forest/",
-      hosting: "JobRad GmbH",
-      speakers: "Lize Raes (Docker Captain, Basel 🇨🇭) & Jonas Scholz (Docker Captain, Karlsruhe 🇩🇪)",
+      hostId: "jobrad",
+      speakerIds: ["lize-raes", "jonas-scholz"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -68,8 +61,8 @@ export default function DockBurg() {
       url: "https://community.cncf.io/events/details/cncf-cloud-native-freiburg-presents-unconference-kubecon-cloudnativecon-europe/",
       group: "Cloud Native Freiburg",
       groupUrl: "https://community.cncf.io/cloud-native-freiburg/",
-      hosting: "Reservix",
-      speakers: "Community-driven (Unconference)",
+      hostId: "reservix",
+      speakerIds: [], // unconference
       city: "Freiburg",
       country: "Germany",
     },
@@ -80,8 +73,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/306436089/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/docker-black-forest/",
-      hosting: "JobRad GmbH",
-      speakers: "Julian König (Docker Captain, Freiburg 🇩🇪) & Andreas Harter (SRE Lead at JobRad, Freiburg 🇩🇪)",
+      hostId: "jobrad",
+      speakerIds: ["julian-konig", "andreas-harter"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -92,8 +85,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/303671875/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "Reservix",
-      speakers: "Timo Stark (Docker Captain, Nürnberg 🇩🇪)",
+      hostId: "reservix",
+      speakerIds: ["timo-stark"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -104,8 +97,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/300262553/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "JobRad HQ",
-      speakers: "Julian König (Docker Captain, Freiburg 🇩🇪) & Andreas Harter (SRE Lead at JobRad, Freiburg 🇩🇪)",
+      hostId: "jobrad",
+      speakerIds: ["julian-konig", "andreas-harter"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -116,8 +109,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/298649748/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "InxMail GmbH",
-      speakers: "Johannes Großmann (Software Engineer at Docker, Munich 🇩🇪) & Maxime Clement (Software Engineer at Docker, Lille 🇫🇷)",
+      hostId: "inxmail",
+      speakerIds: ["johannes-grossmann", "maxime-clement"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -128,8 +121,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/296483825/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "Recyda GmbH",
-      speakers: "Julian König (Docker Captain, Freiburg 🇩🇪) & Stefan Ruf (Software Engineer at InxMail, Freiburg 🇩🇪)",
+      hostId: "recyda",
+      speakerIds: ["julian-konig", "stefan-ruf"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -140,8 +133,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/293749060/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "InxMail GmbH",
-      speakers: "Julian König, Nicholas Dille, and Martin W.",
+      hostId: "inxmail",
+      speakerIds: ["julian-konig", "nicholas-dille"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -152,8 +145,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/292284637/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "Recyda",
-      speakers: "Nicholas Dille & Daniel Leinfelder (CEO of Smart LGT GmbH, Freiburg 🇩🇪)",
+      hostId: "recyda",
+      speakerIds: ["nicholas-dille", "daniel-leinfelder"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -164,8 +157,8 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/291760084/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
-      hosting: "Recyda GmbH",
-      speakers: "Mohammad-Ali A'râbi (Docker Captain, Freiburg 🇩🇪) & Daniel Leinfelder (CEO of Smart LGT GmbH, Freiburg 🇩🇪)",
+      hostId: "recyda",
+      speakerIds: ["mohammad-ali-arabi", "daniel-leinfelder"],
       city: "Freiburg",
       country: "Germany",
     },
@@ -176,10 +169,10 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/290197640/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
+      hostId: "esono",
+      speakerIds: ["daniel-leinfelder"],
       city: "Freiburg",
       country: "Germany",
-      hosting: "Esono AG",
-      speakers: "Daniel Leinfelder",
     },
     {
       n: 3,
@@ -188,10 +181,10 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/287845505/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
+      hostId: "recyda",
+      speakerIds: ["mathias-leidecker"],
       city: "Freiburg",
       country: "Germany",
-      hosting: "Recyda GmbH",
-      speakers: "Mathias Leidecker (Head of Engineering at Recyda GmbH, Freiburg 🇩🇪)",
     },
     {
       n: 2,
@@ -200,10 +193,10 @@ export default function DockBurg() {
       url: "https://www.meetup.com/docker-black-forest/events/286196885/",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
+      hostId: "recyda",
+      speakerIds: [],
       city: "Freiburg",
       country: "Germany",
-      hosting: "Recyda GmbH",
-      speakers: "Speakers of Docker Community All Hands #6",
     },
     {
       n: 1,
@@ -212,80 +205,103 @@ export default function DockBurg() {
       url: "https://www.linkedin.com/posts/megha-kadur_docker-desktop-introduction-fr-19-aug-activity-6966266555160494080-X6Ch?utm_source=linkedin_share&utm_medium=member_desktop_web",
       group: "Docker Black Forest Meetup Group",
       groupUrl: "https://www.meetup.com/Docker-Black-Forest/",
+      hostId: "online",
+      speakerIds: ["megha-kadur"],
       city: "Online",
       country: "Online",
-      speakers: "Megha Kadur (Docker Captain, Bengaluru 🇮🇳)",
-      hosting: "Online",
     },
   ];
 
+  // ——— UI helpers ———
+  const SpeakerChip = ({ id }) => {
+    const s = speakerById[id];
+    if (!s) return null;
+    return (
+      <a href={s.link ?? "#"} className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-gray-100 hover:bg-gray-200 transition mr-2 mb-2">
+        <img src={s.img} alt={s.name} className="h-6 w-6 rounded-full object-cover" />
+        <span className="text-sm">{s.name}</span>
+      </a>
+    );
+  };
+
+  const HostCell = ({ id }) => {
+    const h = hostById[id];
+    if (!h) return <span className="text-sm opacity-70">—</span>;
+    return (
+      <a href={h.url ?? "#"} className="inline-flex items-center gap-2">
+        {h.logo && <img src={h.logo} alt={h.name} className="h-6 w-auto object-contain" />}
+        <span>{h.name}</span>
+      </a>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Hero */}
       <header className="bg-blue-900 text-white">
         <div className="max-w-6xl mx-auto px-6 py-14 text-center">
           <h1 className="text-5xl font-extrabold tracking-tight">DockBurg</h1>
-          <p className="mt-3 text-xl opacity-90">
-            Home of Cloud Native Freiburg & Docker Black Forest
-          </p>
-          <p className="mt-2 text-lg">
-            🎉 Celebrating 10 Years of CNCF at <span className="font-semibold">cTENcf</span>
-          </p>
+          <p className="mt-3 text-xl opacity-90">Home of Cloud Native Freiburg & Docker Black Forest</p>
+          <p className="mt-2 text-lg">🎉 Celebrating 10 Years of CNCF at <span className="font-semibold">cTENcf</span></p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href={links.sessionize}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🎤 Apply
-              to Speak</a>
-            <a href={links.cncf}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🌐 CNCF
-              Community Page</a>
-            <a href={links.meetup}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">👥 Meetup
-              Group</a>
-            <a href={links.discord}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">💬 Join
-              Discord</a>
+            <a href={links.sessionize} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🎤 Apply to Speak</a>
+            <a href={links.cncf} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🌐 CNCF Community Page</a>
+            <a href={links.meetup} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">👥 Meetup Group</a>
+            <a href={links.discord} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">💬 Join Discord</a>
           </div>
         </div>
       </header>
 
+      {/* About */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
         <h2 className="text-3xl font-bold">About Us</h2>
         <p className="mt-4 leading-relaxed">
           DockBurg is the community hub for <strong>Cloud Native Freiburg</strong> — a fusion of the long-running
           <em> Docker Black Forest Meetup</em> and <em> DevOps Meetups Freiburg</em>.
         </p>
-        <p className="mt-3 opacity-90">
-          We have hosted more than <strong>10 meetups</strong> with Docker Captains, CNCF Ambassadors, and local tech
-          leaders.
-        </p>
-        <p className="mt-3">
-          Organized by three community leads (including you) under the CNCF Local program.
-        </p>
+        <p className="mt-3 opacity-90">We have hosted more than <strong>10 meetups</strong> with Docker Captains, CNCF Ambassadors, and local tech leaders.</p>
+        <p className="mt-3">Organized by three community leads (including you) under the CNCF Local program.</p>
       </section>
 
+      {/* Speakers directory (Hall of Fame) */}
       <section className="bg-gray-100 py-12">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">🎤 Hall of Fame</h2>
-          <p className="text-center mt-2 opacity-80">A selection of speakers & Captains who joined us onsite.</p>
-          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {hallOfFame.map((p) => (
-              <a key={p.name} href={p.link ?? "#"}
-                 className="bg-white rounded-2xl shadow hover:shadow-lg transition p-5 flex flex-col items-center text-center">
-                <img src={p.img} alt={p.name}
-                     className="w-36 h-36 rounded-full object-cover ring-4 ring-white shadow-md" loading="lazy"/>
+          <h2 className="text-3xl font-bold text-center">🎤 Speakers & Captains</h2>
+          <p className="text-center mt-2 opacity-80">Everyone who has spoken at our meetups (so far).</p>
+          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {speakers.map((p) => (
+              <a key={p.id} href={p.link ?? "#"} className="bg-white rounded-2xl shadow hover:shadow-lg transition p-5 flex flex-col items-center text-center">
+                <img src={p.img} alt={p.name} className="w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-md" loading="lazy" />
                 <div className="mt-4">
-                  <h3 className="font-bold text-lg">{p.name}</h3>
+                  <h3 className="font-bold">{p.name}</h3>
                   <p className="text-sm opacity-80">{p.role}</p>
                 </div>
               </a>
             ))}
           </div>
-          <p className="text-center mt-6 text-sm opacity-70">
-            Missing someone? We recently hosted Docker Captains <strong>Lize Raes</strong> and <strong>Jonas
-            Scholz</strong> onsite — send us a link to their preferred headshots to feature here.
-          </p>
         </div>
       </section>
 
+      {/* Hosting partners */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center">🏢 Hosting Partners</h2>
+          <p className="text-center mt-2 opacity-80">Companies that have hosted DockBurg / Cloud Native Freiburg meetups.</p>
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-center">
+            {hosts.filter(h => h.id !== 'online').map((h) => (
+              <a key={h.id} href={h.url ?? "#"} className="bg-white rounded-xl shadow p-4 flex items-center justify-center hover:shadow-lg transition">
+                {h.logo ? (
+                  <img src={h.logo} alt={h.name} className="h-10 w-auto object-contain" />
+                ) : (
+                  <span className="text-center font-medium">{h.name}</span>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Past events */}
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-center">📅 Past Meetups</h2>
         <div className="mt-6 overflow-x-auto bg-white rounded-2xl shadow">
@@ -298,25 +314,29 @@ export default function DockBurg() {
               <th className="p-3">Group</th>
               <th className="p-3">Hosting Company</th>
               <th className="p-3">Speakers</th>
+              <th className="p-3">City</th>
+              <th className="p-3">Country</th>
             </tr>
             </thead>
             <tbody>
             {pastMeetups.map((e) => (
-              <tr key={e.n} className="border-b last:border-none hover:bg-gray-50">
+              <tr key={e.n} className="border-b last:border-none hover:bg-gray-50 align-top">
                 <td className="p-3 font-semibold">{e.n}</td>
                 <td className="p-3 whitespace-nowrap">{e.date}</td>
+                <td className="p-3"><a href={e.url} className="text-blue-700 underline hover:text-blue-900">{e.title}</a></td>
+                <td className="p-3"><a href={e.groupUrl} className="text-blue-700 underline hover:text-blue-900">{e.group}</a></td>
+                <td className="p-3"><HostCell id={e.hostId} /></td>
                 <td className="p-3">
-                  <a href={e.url} className="text-blue-700 underline hover:text-blue-900">
-                    {e.title}
-                  </a>
+                  <div className="flex flex-wrap">
+                    {e.speakerIds && e.speakerIds.length > 0 ? (
+                      e.speakerIds.map((id) => <SpeakerChip key={id} id={id} />)
+                    ) : (
+                      <span className="text-sm opacity-70">—</span>
+                    )}
+                  </div>
                 </td>
-                <td className="p-3">
-                  <a href={e.groupUrl} className="text-blue-700 underline hover:text-blue-900">
-                    {e.group}
-                  </a>
-                </td>
-                <td className="p-3">{e.hosting}</td>
-                <td className="p-3">{e.speakers}</td>
+                <td className="p-3">{e.city}</td>
+                <td className="p-3">{e.country}</td>
               </tr>
             ))}
             </tbody>
@@ -325,23 +345,16 @@ export default function DockBurg() {
         <p className="mt-3 text-sm opacity-70 text-center">If we missed your talk, ping us on Discord to add it. 💬</p>
       </section>
 
+      {/* CTA */}
       <section className="bg-blue-900 text-white">
         <div className="max-w-6xl mx-auto px-6 py-12 text-center">
           <h2 className="text-3xl font-bold">Join Us at cTENcf 🎉</h2>
           <p className="mt-2 opacity-90">We’re celebrating 10 years of CNCF. Be part of the story!</p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href={links.sessionize}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🎤 Apply
-              to Speak</a>
-            <a href={links.cncf}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🌐 CNCF
-              Community Page</a>
-            <a href={links.meetup}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">👥 Meetup
-              Group</a>
-            <a href={links.discord}
-               className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">💬 Join
-              Discord</a>
+            <a href={links.sessionize} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🎤 Apply to Speak</a>
+            <a href={links.cncf} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">🌐 CNCF Community Page</a>
+            <a href={links.meetup} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">👥 Meetup Group</a>
+            <a href={links.discord} className="bg-white text-blue-900 px-6 py-3 rounded-xl shadow-md font-semibold hover:shadow-lg">💬 Join Discord</a>
           </div>
         </div>
       </section>
